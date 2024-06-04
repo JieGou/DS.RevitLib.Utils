@@ -20,7 +20,11 @@ namespace DS.RevitLib.Utils.Extensions
         /// <returns>Returns value in millimeters.</returns>
         public static double FeetToMM(this double value)
         {
+#if R2020
             return UnitUtils.Convert(value, DisplayUnitType.DUT_DECIMAL_FEET, DisplayUnitType.DUT_MILLIMETERS);
+#elif R2022
+            return UnitUtils.Convert(value, UnitTypeId.Feet, UnitTypeId.Millimeters);
+#endif
         }
 
         /// <summary>
@@ -41,7 +45,11 @@ namespace DS.RevitLib.Utils.Extensions
         /// <returns>Returns value in feets.</returns>
         public static double MMToFeet(this double value)
         {
+#if R2020
             return UnitUtils.Convert(value, DisplayUnitType.DUT_MILLIMETERS, DisplayUnitType.DUT_DECIMAL_FEET);
+#elif R2022
+            return UnitUtils.Convert(value, UnitTypeId.Millimeters, UnitTypeId.Feet);
+#endif
         }
 
         /// <summary>

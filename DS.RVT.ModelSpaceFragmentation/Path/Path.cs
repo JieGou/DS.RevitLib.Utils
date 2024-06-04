@@ -2,7 +2,7 @@
 using DS.ClassLib.VarUtils.Points;
 using DS.RevitLib.Utils.Various;
 using DS.RVT.ModelSpaceFragmentation.Lines;
-using FrancoGustavo;
+//using FrancoGustavo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,36 +15,36 @@ namespace DS.RVT.ModelSpaceFragmentation
 {
     static class Path
     {
-        public static List<Point3D> Refine(List<PointPathFinderNode> path)
-        {
-            List<Point3D> points = new List<Point3D>();
-            if (path == null || path.Count == 0)
-            { return points; }
+        //public static List<Point3D> Refine(List<PointPathFinderNode> path)
+        //{
+        //    List<Point3D> points = new List<Point3D>();
+        //    if (path == null || path.Count == 0)
+        //    { return points; }
 
-            var firstNode = path[0];
-            Point3D basePoint = firstNode.Point;
-            Vector3D baseDir = firstNode.Dir;
+        //    var firstNode = path[0];
+        //    Point3D basePoint = firstNode.Point;
+        //    Vector3D baseDir = firstNode.Dir;
 
-            for (int i = 1; i < path.Count; i++)
-            {
-                var currentNode = path[i];
-                var currentPoint = currentNode.Point;
-                var currentDir = path[i].Dir;
-                if (currentDir.Length != 0)
-                { currentDir.Normalize(); }
+        //    for (int i = 1; i < path.Count; i++)
+        //    {
+        //        var currentNode = path[i];
+        //        var currentPoint = currentNode.Point;
+        //        var currentDir = path[i].Dir;
+        //        if (currentDir.Length != 0)
+        //        { currentDir.Normalize(); }
 
-                if(baseDir.Length == 0 || !currentDir.IsAlmostEqualTo(baseDir))
-                {
-                    points.Add(basePoint);
-                    baseDir = currentDir;
-                }
-                basePoint = currentPoint; 
-            }
+        //        if(baseDir.Length == 0 || !currentDir.IsAlmostEqualTo(baseDir))
+        //        {
+        //            points.Add(basePoint);
+        //            baseDir = currentDir;
+        //        }
+        //        basePoint = currentPoint; 
+        //    }
 
-            points.Add(basePoint);
+        //    points.Add(basePoint);
 
-            return points;
-        }
+        //    return points;
+        //}
 
         public static List<XYZ> Convert(List<Point3D> path, IPoint3dConverter pointConverter)
         {
@@ -55,8 +55,8 @@ namespace DS.RVT.ModelSpaceFragmentation
             foreach (var point in path)
             {
                 //Point3D ucs1Point = point;
-                var ucs1Point3d = point.Convert();
-                ucs1Point3d = pointConverter.ConvertToUCS1(ucs1Point3d);
+                var ucs1Point3d = point/*.Convert()*/;
+                //ucs1Point3d = pointConverter.ConvertToUCS1(ucs1Point3d);
                 var xYZ = new XYZ(ucs1Point3d.X, ucs1Point3d.Y, ucs1Point3d.Z);
                 pathCoords.Add(xYZ);
             }

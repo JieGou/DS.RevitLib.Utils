@@ -82,15 +82,9 @@ namespace DS.RevitLib.Utils
         {
             XYZ centerPoint = GetLocationPoint(element);
 
-            double X = UnitUtils.Convert(centerPoint.X,
-                                         DisplayUnitType.DUT_DECIMAL_FEET,
-                                         DisplayUnitType.DUT_MILLIMETERS);
-            double Y = UnitUtils.Convert(centerPoint.Y,
-                                          DisplayUnitType.DUT_DECIMAL_FEET,
-                                           DisplayUnitType.DUT_MILLIMETERS);
-            double Z = UnitUtils.Convert(centerPoint.Z,
-                                            DisplayUnitType.DUT_DECIMAL_FEET,
-                                           DisplayUnitType.DUT_MILLIMETERS);
+            double X = centerPoint.X.FeetToMM();
+            double Y = centerPoint.Y.FeetToMM();
+            double Z = centerPoint.Z.FeetToMM();
             int X_MM = (int)Math.Round(X);
             int Y_MM = (int)Math.Round(Y);
             int Z_MM = (int)Math.Round(Z);
@@ -115,7 +109,7 @@ namespace DS.RevitLib.Utils
         {
             var solids = SolidExtractor.GetSolids(element);
 
-            if(solids.Count > maxSolidsCount) 
+            if (solids.Count > maxSolidsCount)
             { return solids.OrderByDescending(s => s.Volume).FirstOrDefault(); }
 
             return Solids.SolidUtils.UniteSolids(solids);

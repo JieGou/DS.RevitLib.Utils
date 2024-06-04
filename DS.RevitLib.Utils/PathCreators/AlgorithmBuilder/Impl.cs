@@ -285,9 +285,14 @@ namespace DS.RevitLib.Utils.PathCreators.AlgorithmBuilder
                 var orths = new List<Vector3d>()
                 { _initialBasis.basisX, _initialBasis.basisY, _initialBasis.basisZ };
 
-                _nodeBuilder = _algorithmBuilder.NodeBuilder = new NodeBuilder(
-               _heuristicFormula, _startPoint, _endPoint,
-               _traceSettings.Step, orths, _pointConverter, _mCompactPath, _punishChangeDirection)
+                _nodeBuilder = _algorithmBuilder.NodeBuilder = new NodeBuilder(_heuristicFormula,
+                                                                               _startPoint,
+                                                                               _endPoint,
+                                                                               _traceSettings.Step,
+                                                                               orths,
+                                                                               _pointConverter,null,
+                                                                             mCompactPath: _mCompactPath,
+                                                                              punishChangeDirection: _punishChangeDirection)
                 {
                     Tolerance = _tolerance,
                     PointVisualisator = _pointVisualisator

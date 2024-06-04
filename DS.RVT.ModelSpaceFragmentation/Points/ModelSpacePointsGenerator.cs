@@ -1,4 +1,5 @@
 ﻿using Autodesk.Revit.DB;
+using DS.RevitLib.Utils.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace DS.RVT.ModelSpaceFragmentation
         public static int Ycount { get; set; }
         public static int Zcount { get; set; }
 
-        public ModelSpacePointsGenerator (XYZ p1, XYZ p2)
+        public ModelSpacePointsGenerator(XYZ p1, XYZ p2)
         {
             Point1 = p1;
             Point2 = p2;
@@ -49,8 +50,8 @@ namespace DS.RVT.ModelSpaceFragmentation
                         spacePoints.Add(point);
                     }
                 }
-            }            
-           
+            }
+
 
             return spacePoints;
         }
@@ -58,9 +59,7 @@ namespace DS.RVT.ModelSpaceFragmentation
 
         void GetStepInFeets()
         {
-            PointsStepF = UnitUtils.Convert((double)PointsStep / 1000,
-                                 DisplayUnitType.DUT_METERS,
-                                 DisplayUnitType.DUT_DECIMAL_FEET);
+            PointsStepF = ((double)PointsStep).MMToFeet();
         }
 
         void GetCount()

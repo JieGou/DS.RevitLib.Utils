@@ -58,9 +58,14 @@ namespace DS.RevitLib.Utils.Collisions.Detectors
         /// <param name="linkElementsDict"></param>
         /// <param name="pointConverter"></param>
         /// <param name="transactionFactory"></param>
-        public CollisionDetectorByTrace(Document doc, MEPCurve baseMEPCurve, ITraceSettings traceSettings, bool insulationAccount,
-            List<Element> docElements, Dictionary<RevitLinkInstance, List<Element>> linkElementsDict = null, IPoint3dConverter pointConverter = null,
-            ITransactionFactory transactionFactory = null)
+        public CollisionDetectorByTrace(Document doc,
+                                        MEPCurve baseMEPCurve,
+                                        ITraceSettings traceSettings,
+                                        bool insulationAccount,
+                                        List<Element> docElements,
+                                        Dictionary<RevitLinkInstance, List<Element>> linkElementsDict = null,
+                                        IPoint3dConverter pointConverter = null,
+                                        ITransactionFactory transactionFactory = null)
         {
             _doc = doc;
             _baseMEPCurve = baseMEPCurve;

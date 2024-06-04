@@ -27,16 +27,16 @@ namespace DS.RVT.ModelSpaceFragmentation
         public static XYZ StartElemPoint { get; set; }
         public static XYZ EndElemPoint { get; set; }
 
-        private readonly OrthoNormBasis _basis;
+        //private readonly OrthoNormBasis _basis;
         private readonly XYZ _startPoint;
         private readonly XYZ _endPoint;
 
-        public ElementInfo(OrthoNormBasis basis, XYZ startPoint, XYZ endPoint)
-        {
-            _basis = basis;
-            _startPoint = startPoint;
-            _endPoint = endPoint;
-        }
+        //public ElementInfo(OrthoNormBasis basis, XYZ startPoint, XYZ endPoint)
+        //{
+        //    _basis = basis;
+        //    _startPoint = startPoint;
+        //    _endPoint = endPoint;
+        //}
 
         public List<XYZ> GetPoints()
         {
@@ -53,7 +53,8 @@ namespace DS.RVT.ModelSpaceFragmentation
 
             List<XYZ> boundPoints = new List<XYZ>();
 
-            Vector3D moveVector = _basis.X + _basis.Y + _basis.Z;
+            //Vector3D moveVector = _basis.X + _basis.Y + _basis.Z;
+            Vector3D moveVector= new Vector3D();
             var xYZMoveVector = new XYZ(
                 moveVector.X * OffsetFromOriginByX.MMToFeet(), 
                 moveVector.Y * OffsetFromOriginByY.MMToFeet(), 

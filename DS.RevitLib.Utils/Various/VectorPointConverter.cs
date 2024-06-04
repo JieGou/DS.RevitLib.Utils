@@ -9,7 +9,7 @@ using System.Windows.Media.Media3D;
 
 namespace DS.RevitLib.Utils.Various
 {
-    public class VectorPointConverter : IPointConverter
+    public class VectorPointConverter /*: IPointConverter*/
     {
         private readonly Point3D _uCS1BasePoint;
         private readonly Point3D _uCS2BasePoint;

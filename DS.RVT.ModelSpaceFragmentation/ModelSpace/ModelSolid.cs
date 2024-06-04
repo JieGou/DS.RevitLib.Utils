@@ -1,6 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 using System.Collections.Generic;
-using DS.RevitUtils.MEP;
+//using DS.RevitUtils.MEP;
 using System.Linq;
 using DS.RevitLib.Utils;
 
@@ -41,8 +41,8 @@ namespace DS.RVT.ModelSpaceFragmentation
             {
                 Main.CurrentElement
             };
-            ConnectedElement connectedElement = new ConnectedElement();
-            connectedElements.AddRange(connectedElement.GetAllConnected(Main.CurrentElement, Doc));
+            //var connectedElement = new ConnectedElement();
+            //connectedElements.AddRange(connectedElement.GetAllConnected(Main.CurrentElement, Doc));
             ICollection<ElementId> elementIds = connectedElements.Select(el => el.Id).ToList();
             ExclusionFilter exclusionFilter = new ExclusionFilter(elementIds);
 

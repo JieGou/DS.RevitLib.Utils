@@ -1,4 +1,5 @@
 ﻿using Autodesk.Revit.DB;
+using DS.RevitLib.Utils.Extensions;
 using System;
 
 namespace DS.RVT.ModelSpaceFragmentation
@@ -11,9 +12,7 @@ namespace DS.RVT.ModelSpaceFragmentation
         {
             get
             {
-                return UnitUtils.Convert(ZoneSize,
-                                 DisplayUnitType.DUT_MILLIMETERS,
-                                 DisplayUnitType.DUT_DECIMAL_FEET);
+                return ZoneSize.MMToFeet();
             }
         }
         private static XYZ DeltaBounds

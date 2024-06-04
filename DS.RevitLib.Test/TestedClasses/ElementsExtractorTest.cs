@@ -93,7 +93,7 @@ namespace DS.RevitLib.Test.TestedClasses
             p2.Show(_doc);
             _uiDoc.RefreshActiveView();
 
-            var (minPoint, maxPoint) = XYZUtils.CreateMinMaxPoints(new List<XYZ>() { p1, p2 });
+            var (minPoint, maxPoint) = DS.RevitLib.Utils.XYZUtils.CreateMinMaxPoints(new List<XYZ>() { p1, p2 });
 
             double offsetX = 0;
             double offsetY = 0;
@@ -103,11 +103,11 @@ namespace DS.RevitLib.Test.TestedClasses
 
             var p11 = minPoint + moveVector;
             var p12 = minPoint - moveVector;
-            (XYZ minP1, XYZ maxP1) = XYZUtils.CreateMinMaxPoints(new List<XYZ> { p11, p12 });
+            (XYZ minP1, XYZ maxP1) = DS.RevitLib.Utils.XYZUtils.CreateMinMaxPoints(new List<XYZ> { p11, p12 });
 
             var p21 = maxPoint + moveVector;
             var p22 = maxPoint - moveVector;
-            (XYZ minP2, XYZ maxP2) = XYZUtils.CreateMinMaxPoints(new List<XYZ> { p21, p22 });
+            (XYZ minP2, XYZ maxP2) = DS.RevitLib.Utils.XYZUtils.CreateMinMaxPoints(new List<XYZ> { p21, p22 });
 
             return new Outline(minP1, maxP2);
         }
